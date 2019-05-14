@@ -1,0 +1,31 @@
+---
+title: "ToM"
+author: "Annamaya Halskov-Jensen"
+date: "13/5/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+
+setwd("/Users/annamayahalskov-jensen/Documents/Cognitive Science/4th semester/Social and cultural dynamics in cognition/SocKult Exam")
+library(pacman)
+p_load(tidyverse)
+
+tom <- read.csv("tom_trials - Ark1.csv")
+```
+
+
+```{r}
+ggplot(tom, aes(trial, tom)) +
+  geom_point(aes(colour=ID)) +
+  geom_smooth(aes(colour=ID), se = F)
+
+#method = "gam", formula = y ~ s(x, bs = "cs")
+
+ggplot(tom, aes(trial, tom)) +
+  geom_point(aes(colour=ID), shape = 10, size = 3) +
+  geom_line(aes(colour=ID)) + 
+  scale_y_continuous(breaks = c(-10:15)) +
+  scale_x_continuous(breaks = c(1:3))
+```
+
